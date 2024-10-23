@@ -23,6 +23,9 @@ func main() {
 	mux.HandleFunc("/api/v1/services/deregister", deregisterService)
 	mux.HandleFunc("/api/v1/services/status", getServiceStatus)
 
+	// Import UI service handlers
+	registerUIHandlers(mux)
+
 	log.Println("Starting server on :8080")
 	err := http.ListenAndServe(":8080", mux)
 	if err != nil {
