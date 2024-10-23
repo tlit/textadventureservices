@@ -1,0 +1,433 @@
+{
+  "projectOverview": {
+    "title": "Master Service for AI-Powered Text Adventure Engine",
+    "description": "A central service that manages and coordinates interactions between various services in the text adventure engine.",
+    "goals": [
+      "Efficiently manage and orchestrate interactions between services",
+      "Provide a unified interface for service management",
+      "Integrate with Ollama for processing user inputs",
+      "Integrate world generation based on user prompts"
+    ]
+  },
+  "requirements": {
+    "functional": [
+      "Register and deregister services dynamically",
+      "Monitor the health and status of each service",
+      "Route requests to appropriate services based on functionality",
+      "Aggregate and log service metrics for performance monitoring",
+      "Provide endpoints for UI to interact with the master service",
+      "Integrate with Ollama to process user inputs and update game state",
+      "Generate dynamic game worlds based on user prompts",
+      "Facilitate UI interactions for command input and game state display"
+    ],
+    "nonFunctional": [
+      "Ensure high availability and fault tolerance",
+      "Scalable to manage multiple services concurrently",
+      "Maintain low latency in processing user inputs"
+    ]
+  },
+  "endpoints": [
+    {
+      "path": "/api/v1/services/register",
+      "method": "POST",
+      "description": "Registers a new service with the master service",
+      "parameters": {
+        "serviceName": "string",
+        "serviceUrl": "string"
+      },
+      "responses": {
+        "200": {
+          "description": "Service registered successfully"
+        }
+      }
+    },
+    {
+      "path": "/api/v1/services/deregister",
+      "method": "POST",
+      "description": "Deregisters an existing service",
+      "parameters": {
+        "serviceName": "string"
+      },
+      "responses": {
+        "200": {
+          "description": "Service deregistered successfully"
+        }
+      }
+    },
+    {
+      "path": "/api/v1/services/status",
+      "method": "GET",
+      "description": "Retrieves the status of all registered services",
+      "responses": {
+        "200": {
+          "description": "List of service statuses",
+          "body": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "serviceName": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "path": "/api/v1/ui/state",
+      "method": "GET",
+      "description": "Retrieves the current UI state for the user",
+      "responses": {
+        "200": {
+          "description": "UI state retrieved successfully",
+          "body": {
+            "type": "object",
+            "properties": {
+              "uiState": {
+                "type": "object",
+                "description": "Current state of the UI"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "path": "/api/v1/ui/command",
+      "method": "POST",
+      "description": "Receives commands from the UI and routes them to the appropriate service",
+      "parameters": {
+        "command": "string"
+      },
+      "responses": {
+        "200": {
+          "description": "Command processed successfully"
+        }
+      }
+    },
+    {
+      "path": "/api/v1/process-input",
+      "method": "POST",
+      "description": "Processes user input and updates the game state via Ollama",
+      "parameters": {
+        "userInput": "string",
+        "currentState": "object"
+      },
+      "responses": {
+        "200": {
+          "description": "Successful processing of user input",
+          "body": {
+            "type": "object",
+            "properties": {
+              "updatedState": {
+                "type": "object",
+                "description": "Updated game state"
+              },
+              "actionSummary": {
+                "type": "string",
+                "description": "Summary of the user's action"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "path": "/api/v1/game-state",
+      "method": "GET",
+      "description": "Retrieves the current game state",
+      "responses": {
+        "200": {
+          "description": "Current game state retrieved successfully",
+          "body": {
+            "type": "object",
+            "properties": {
+              "gameState": {
+                "type": "object",
+                "description": "Current game state"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "path": "/api/v1/logs",
+      "method": "GET",
+      "description": "Retrieves logs for analysis",
+      "responses": {
+        "200": {
+          "description": "Logs retrieved successfully",
+          "body": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "timestamp": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "path": "/api/v1/metrics",
+      "method": "GET",
+      "description": "Retrieves performance metrics",
+      "responses": {
+        "200": {
+          "description": "Metrics retrieved successfully",
+          "body": {
+            "type": "object",
+            "properties": {
+              "metrics": {
+                "type": "object",
+                "description": "Performance metrics"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "path": "/api/v1/auth/login",
+      "method": "POST",
+      "description": "Authenticates users",
+      "parameters": {
+        "username": "string",
+        "password": "string"
+      },
+      "responses": {
+        "200": {
+          "description": "User authenticated successfully"
+        }
+      }
+    },
+    {
+      "path": "/api/v1/auth/validate",
+      "method": "POST",
+      "description": "Validates user sessions",
+      "parameters": {
+        "token": "string"
+      },
+      "responses": {
+        "200": {
+          "description": "Session validated successfully"
+        }
+      }
+    },
+    {
+      "path": "/api/v1/render-image",
+      "method": "POST",
+      "description": "Generates images for the current game state",
+      "parameters": {
+        "gameState": "object"
+      },
+      "responses": {
+        "200": {
+          "description": "Image rendered successfully",
+          "body": {
+            "type": "string",
+            "description": "URL of the rendered image"
+          }
+        }
+      }
+    },
+    {
+      "path": "/api/v1/generate-world",
+      "method": "POST",
+      "description": "Generates a game world based on the user's prompt",
+      "parameters": {
+        "prompt": "string"
+      },
+      "responses": {
+        "200": {
+          "description": "Successful generation of game world",
+          "body": {
+            "type": "object",
+            "properties": {
+              "world": {
+                "type": "object",
+                "description": "Node graph of the game world"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "dataModels": {
+    "Service": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "inactive", "error"]
+        }
+      }
+    },
+    "GameState": {
+      "type": "object",
+      "properties": {
+        "scenes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/dataModels/Scene"
+          }
+        },
+        "currentScene": {
+          "type": "string",
+          "description": "ID of the current scene"
+        }
+      }
+    },
+    "Scene": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the scene"
+        },
+        "description": {
+          "type": "string",
+          "description": "Narrative description of the scene"
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/dataModels/Object"
+          },
+          "description": "List of objects present in the scene"
+        },
+        "connectors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/dataModels/Connector"
+          },
+          "description": "Connections to other scenes"
+        }
+      }
+    },
+    "Connector": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the connector"
+        },
+        "exits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/dataModels/Exit"
+          },
+          "description": "Exits available through this connector"
+        }
+      }
+    },
+    "Exit": {
+      "type": "object",
+      "properties": {
+        "direction": {
+          "type": "string",
+          "enum": ["N", "S", "E", "W", "up", "down"],
+          "description": "Direction of the exit"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the exit relative to the scene"
+        }
+      }
+    },
+    "Object": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the object"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Descriptive tags for the object"
+        },
+        "material": {
+          "type": "string",
+          "description": "Material of the object"
+        }
+      }
+    }
+  },
+  "constraints": [
+    "The master service must be able to handle service failures gracefully",
+    "Service registration should be secure and authenticated",
+    "UI interactions must be secure and authenticated",
+    "Ollama must provide coherent and contextually appropriate responses",
+    "The AI model should be capable of generating coherent and themed game worlds",
+    "UI must be responsive and user-friendly"
+  ],
+  "milestones": [
+    {
+      "name": "Initial Setup",
+      "date": "2024-02-01"
+    },
+    {
+      "name": "Integration with Other Services",
+      "date": "2024-04-01"
+    },
+    {
+      "name": "Integration with Ollama",
+      "date": "2024-05-01"
+    },
+    {
+      "name": "World Generation Integration",
+      "date": "2024-06-01"
+    },
+    {
+      "name": "UI Integration",
+      "date": "2024-05-01"
+    }
+  ],
+  "glossary": {
+    "Service": "A component that provides specific functionality within the system",
+    "Master Service": "The central service that manages and coordinates other services",
+    "UI": "User Interface for interacting with the master service",
+    "Ollama": "The AI model used for processing user inputs"
+  },
+  "version": "1.3.0",
+  "changeLog": [
+    {
+      "version": "1.0.0",
+      "changes": "Initial specification"
+    },
+    {
+      "version": "1.1.0",
+      "changes": "Added integration with Ollama for processing user inputs"
+    },
+    {
+      "version": "1.2.0",
+      "changes": "Outlined all remaining services and their endpoints"
+    },
+    {
+      "version": "1.3.0",
+      "changes": "Integrated world generation service"
+    }
+  ]
+}
