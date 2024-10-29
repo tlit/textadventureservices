@@ -1,7 +1,7 @@
 {
   "projectOverview": {
-    "title": "Ollama Integration for Text Adventure",
-    "description": "Integration of Ollama to process user inputs and update the game state in the text adventure engine.",
+    "title": "Claude Integration for Text Adventure",
+    "description": "Integration of Claude to process user inputs and update the game state in the text adventure engine.",
     "goals": [
       "Interpret user inputs to affect game state",
       "Provide a summary of actions to the user"
@@ -10,8 +10,8 @@
   "requirements": {
     "functional": [
       "Receive user input from the UI",
-      "Send input to Ollama for processing",
-      "Receive updated game state and action summary from Ollama",
+      "Send input to Claude for processing",
+      "Receive updated game state and action summary from Claude",
       "Update UI with new game state and display action summary"
     ],
     "nonFunctional": [
@@ -66,7 +66,7 @@
     }
   },
   "constraints": [
-    "Ollama must provide coherent and contextually appropriate responses",
+    "Claude must provide coherent and contextually appropriate responses",
     "The game state must be updated accurately based on user actions"
   ],
   "milestones": [
@@ -80,19 +80,19 @@
     }
   ],
   "glossary": {
-    "Ollama": "The AI model used for processing user inputs",
+    "Claude": "The AI model used for processing user inputs",
     "Game State": "The current status of the game world, including scenes and objects"
   },
   "version": "1.0.0",
   "changeLog": [
     {
       "version": "1.0.0",
-      "changes": "Initial specification for Ollama integration"
+      "changes": "Initial specification for Claude integration"
     }
   ],
   "examples": {
     "userInputExample": "open the box",
-    "ollamaResponseExample": {
+    "claudeResponseExample": {
       "updatedState": {
         "currentScene": "scene1",
         "scenes": [
