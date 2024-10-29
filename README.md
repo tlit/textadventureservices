@@ -1,138 +1,177 @@
-# Computer Use Project
+# AI-Powered Text Adventure Game Engine
 
-This project consists of multiple components working together to provide a desktop environment with various services and applications. The main components include:
+A sophisticated text adventure game engine powered by AI, featuring dynamic world generation, intelligent game state management, and interactive storytelling.
 
-1. Desktop Environment Services
-2. Computer Use Demo Application
-3. Text Adventure Game Services
+## Project Overview
 
-## Prerequisites
+This project is a modern take on classic text adventure games, leveraging AI to create dynamic, responsive game worlds. The system consists of multiple microservices working together to provide an immersive gaming experience.
 
-- Ubuntu/Linux environment
-- Python 3.11+
-- Go 1.x+
-- Node.js (for noVNC)
+### Core Features
 
-## Project Structure
+- Dynamic world generation based on user prompts
+- AI-powered game state management
+- Real-time text processing and response generation
+- Web-based user interface with visual elements
+- Service-oriented architecture for scalability
+
+## Architecture
+
+The project follows a microservices architecture with the following key components:
 
 ```
-.
-├── computer_use_demo/         # Demo application with Streamlit interface
-├── text_adventure_game/       # Text adventure game services
-├── static_content/            # Static web content
-├── *.sh                       # Various startup scripts
-└── http_server.py            # HTTP server implementation
+textadventureservices/
+├── Specs/                    # Service specifications and API definitions
+├── src/
+│   ├── config/              # Configuration settings
+│   ├── models/              # Data models and types
+│   ├── services/            # Core services implementation
+│   │   ├── auth/           # Authentication service
+│   │   ├── master/         # Master coordination service
+│   │   ├── ui/             # User interface service
+│   │   └── worldgen/       # World generation service
+│   └── utils/              # Utility functions and helpers
+├── go-services/             # Go implementations of core services
+└── tests/                   # Test suites
 ```
+
+### Services
+
+1. **Master Service**
+   - Central orchestrator for all other services
+   - Handles service registration and coordination
+   - Manages game state and user sessions
+
+2. **Auth Service**
+   - User authentication and session management
+   - Secure token generation and validation
+   - User permissions and access control
+
+3. **World Generation Service**
+   - Creates dynamic game worlds based on prompts
+   - Generates scene descriptions and connections
+   - Manages world state and persistence
+
+4. **UI Service**
+   - Web-based user interface
+   - Command input and processing
+   - Game state visualization
+   - Real-time updates
+
+## API Endpoints
+
+### Master Service Endpoints
+- `POST /api/v1/services/register` - Register new services
+- `POST /api/v1/services/deregister` - Deregister services
+- `GET /api/v1/services/status` - Get service status
+- `POST /api/v1/process-input` - Process user commands
+- `GET /api/v1/game-state` - Get current game state
+
+### Authentication Endpoints
+- `POST /api/v1/auth/login` - User login
+- `POST /api/v1/auth/validate` - Validate session tokens
+
+### World Generation Endpoints
+- `POST /api/v1/generate-world` - Generate new game world
+- `POST /api/v1/render-image` - Generate scene visualizations
 
 ## Installation
 
-1. Install system dependencies:
-```bash
-sudo apt update
-sudo apt install -y python3-pip golang-go nodejs npm xvfb x11vnc novnc
-```
+1. System Requirements:
+   - Python 3.11+
+   - Go 1.x+
+   - Redis (for state management)
 
 2. Install Python dependencies:
 ```bash
-# For computer_use_demo
-cd computer_use_demo
-pip install -r requirements.txt
-
-# For text adventure services
-cd ../text_adventure_game/textadventureservices
 pip install -r requirements.txt
 ```
 
 3. Install Go dependencies:
 ```bash
-cd text_adventure_game/go-services
+cd go-services
 go mod download
 ```
 
-## Starting the Services
+## Running the Services
 
-The project uses several startup scripts to initialize all necessary services. The main startup script `start_all.sh` orchestrates the launch of all components.
-
-To start all services:
-
+1. Start the Master Service:
 ```bash
-./start_all.sh
+cd services/master
+go run .
 ```
 
-This script will start the following components in sequence:
-
-1. Xvfb (X Virtual Frame Buffer) - `xvfb_startup.sh`
-2. Mutter (Window Manager) - `mutter_startup.sh`
-3. Tint2 (Panel/Taskbar) - `tint2_startup.sh`
-4. x11vnc (VNC Server) - `x11vnc_startup.sh`
-5. noVNC (VNC Client) - `novnc_startup.sh`
-
-### Individual Service Details
-
-#### Desktop Environment
-- **Xvfb**: Virtual X server, runs on display :1
-- **Mutter**: Window manager for the desktop environment
-- **Tint2**: Lightweight panel/taskbar
-- **x11vnc**: VNC server that shares the Xvfb display
-- **noVNC**: HTML5 VNC client accessible via web browser
-
-#### Computer Use Demo
-The demo application is a Streamlit-based interface that provides various tools and functionalities:
+2. Start the Auth Service:
 ```bash
-cd computer_use_demo
-streamlit run streamlit.py
+cd services/auth
+go run .
 ```
 
-#### Text Adventure Game Services
-The text adventure game consists of multiple microservices:
+3. Start the World Generation Service:
 ```bash
-cd text_adventure_game/go-services
-# Start each service in its own terminal:
-cd services/auth && go run .
-cd services/gamestate && go run .
-cd services/worldgen && go run .
+cd services/worldgen
+python -m src.services.worldgen
 ```
 
-## Accessing the Services
-
-- **Desktop Environment**: Access through noVNC at `http://localhost:6080/vnc.html`
-- **Computer Use Demo**: Access the Streamlit interface at `http://localhost:8501`
-- **Game Services**: Various endpoints available based on service specifications in `text_adventure_game/textadventureservices/Specs/`
-
-## Configuration
-
-- Environment variables and configuration settings can be found in:
-  - `computer_use_demo/tools/config.py`
-  - `text_adventure_game/textadventureservices/src/config/settings.py`
+4. Start the UI Service:
+```bash
+cd services/ui
+python -m src.services.ui
+```
 
 ## Development
 
-- Python code follows PEP 8 style guide
-- Go code follows standard Go formatting conventions
-- Use `go fmt` before committing Go code
-- Run tests using `go test ./...` in Go service directories
+### Code Style
+- Python: Follow PEP 8
+- Go: Use standard Go formatting
+- Run `go fmt ./...` before committing Go code
 
-## Troubleshooting
+### Testing
+```bash
+# Run Go tests
+cd go-services
+go test ./...
 
-1. If the desktop environment doesn't start:
-   - Check Xvfb logs
-   - Ensure display :1 is not already in use
-   - Verify all startup scripts have execute permissions
+# Run Python tests
+python -m pytest
+```
 
-2. If services fail to start:
-   - Check port availability
-   - Verify all dependencies are installed
-   - Check service logs in respective directories
+### Data Models
 
-3. If noVNC connection fails:
-   - Verify VNC server is running
-   - Check network connectivity
-   - Ensure ports 6080 and 5901 are available
+The system uses several key data models:
+
+1. **Scene**
+   - Unique identifier
+   - Description
+   - Objects
+   - Connectors to other scenes
+
+2. **Object**
+   - Name
+   - Description
+   - Properties
+   - Interaction rules
+
+3. **GameState**
+   - Current scene
+   - Inventory
+   - Game progress
+   - Player status
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit changes
+4. Push to the branch
+5. Create a Pull Request
 
 ## License
 
 This project is proprietary and confidential.
 
-## Contributing
+## Version History
 
-For internal use only. Please follow the established development workflow and code review process.
+- v1.3.0 - Added world generation integration
+- v1.2.0 - Complete service specification
+- v1.1.0 - Added AI integration
+- v1.0.0 - Initial release
