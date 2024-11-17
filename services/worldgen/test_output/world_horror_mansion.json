@@ -1,0 +1,12 @@
+{
+  "seed": 42,
+  "rooms": {
+    "room_1731786728206093300_9": {
+      "id": "room_1731786728206093300_9",
+      "description": "You step into the grand foyer of the Victorian mansion, where the dim light struggles against the heavy velvet drapes that frame tall, arched windows. The air is thick with the scent of old mahogany and a hint of something metallic and unsettling. An ornate crystal chandelier dangles precariously from the ceiling, casting flickering shadows across the intricately patterned wallpaper. The floor creaks beneath your feet, echoing in the silence—a silence occasionally interrupted by the distant, haunting toll of a grandfather clock. Your eyes are drawn to a dusty portrait of a stern-faced woman hanging above a marble fireplace, her eyes seemingly following your every move. On a small table near the staircase, an ornate silver key glints invitingly, next to a leather-bound diary with frayed pages protruding. The atmosphere is thick with mystery, urging you to delve deeper into the mansion’s dark secrets that lie beyond the cracked doors.",
+      "objects": [],
+      "exits": {},
+      "properties": {}
+    }
+  }
+}

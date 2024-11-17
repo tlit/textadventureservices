@@ -1,0 +1,56 @@
+{
+  "seed": 42,
+  "rooms": {
+    "room_1926012586526624009": {
+      "id": "room_1926012586526624009",
+      "description": "As you float into the upper level of the surrealist inflatable spacestation, the air shimmers with a kaleidoscope of colors, as if the walls themselves breathe in vibrant hues. Each step you take on the bouncy, cloud-soft floor sends gentle ripples through the atmosphere, a symphony of faint whooshing and whispering sounds echoing around you. The sweet, sharp scent of ozone mingles with an inexplicably floral fragrance, teasing your nostrils with its surreal bouquet. To your right, a console emerges like a living organism from the wall, its touch-sensitive buttons pulsating with an iridescent glow, inviting interaction. Nearby, a luminescent sculpture of swirling, translucent tendrils hovers in mid-air, its form shifting in response to your movement, casting mesmerizing shadows. Above, a ceiling panel seems to melt away, revealing a canvas of shimmering stars and enigmatic shapes that twist and twirl as if locked in a perpetual cosmic dance. The upper level exudes a sense of dreamlike unreality, urging you to explore its wondrous, mind-bending secrets.",
+      "objects": [],
+      "exits": {
+        "east": "room_7497468244883513247",
+        "south": "room_3440579354231278675",
+        "west": "room_3335934666146214990"
+      },
+      "properties": {}
+    },
+    "room_3335934666146214990": {
+      "id": "room_3335934666146214990",
+      "description": "In the Western Wing of the surrealist inflatable space station, the walls ripple like technicolor jelly under the dim, pulsating light of distant quasars. The air is thick with the scent of rubber and cosmic dust, and a faint, otherworldly music echoes from an unseen source, playing a tune both alluring and unsettling. The floor undulates gently beneath your feet, each step releasing a subtle squeak that resonates through the chamber. To your left, a giant inflatable cactus, inexplicably adorned with blinking fairy lights, sways lazily despite the absence of wind, inviting you to touch its spongy surface. On your right, an enigmatic control panel made of translucent spheres and neon feathers awaits your interaction, promising untold secrets if you dare to decipher its cryptic interface. Ahead, a spiraling archway, shimmering like liquid mercury, beckons with the promise of exploration—or madness. The atmosphere is one of whimsical chaos, a dreamlike dance between reality and imagination where nothing is as it seems.",
+      "objects": [],
+      "exits": {
+        "east": "room_1926012586526624009"
+      },
+      "properties": {}
+    },
+    "room_3440579354231278675": {
+      "id": "room_3440579354231278675",
+      "description": "You find yourself in the Central Hub of a surrealist inflatable space station, where the walls pulse with a kaleidoscope of iridescent colors. The air is thick with a sweet, synthetic aroma reminiscent of bubblegum, as melodious chimes softly echo from hidden speakers, creating an atmosphere of whimsical chaos. The floor beneath your feet feels like a trampoline, offering a gentle bounce with each step. In the center of the hub, a giant, inflatable globe rotates lazily, its surface adorned with cryptic symbols and nonsensical maps that beckon you to decode its mysteries. Nearby, a floating console, its screen flickering between abstract shapes and cryptic messages, invites your touch, promising interaction with the station's more peculiar systems. Suspended above, a cluster of translucent, jellyfish-like drones drift aimlessly, their tendrils brushing against your skin with a faint tingling sensation, waiting to be guided by your command. As the station sways gently to its own rhythm, a distorted voice over the intercom chuckles, leaving you both intrigued and slightly unnerved by the playful insanity that surrounds you.",
+      "objects": [],
+      "exits": {
+        "east": "",
+        "north": "room_1926012586526624009",
+        "south": "",
+        "west": ""
+      },
+      "properties": {}
+    },
+    "room_5961769557461764184": {
+      "id": "room_5961769557461764184",
+      "description": "As you drift into the Eastern Wing of this surrealist inflatable space station, your senses are engulfed by a kaleidoscope of bizarre wonders. The walls, pulsating with iridescent colors, seem to breathe with a life of their own, exuding a faint scent of bubbling lavender and burnt sugar. Distorted echoes of an otherworldly melody reverberate through the chamber, creating an unsettling yet entrancing symphony. To your right, a floating, semi-transparent control panel hovers, its buttons changing shape and hue with each glance, inviting you to unlock its cryptic mysteries. Nearby, a gravity-defying plant grows upside down from the ceiling, its fleshy leaves whispering secrets if you dare to touch them. In the center of the room, an antique, oversized key spins slowly within a glittering bubble, casting prismatic shadows that dance hypnotically across the room. The atmosphere here is both whimsical and disquieting, a place where reality bends and the curious are beckoned to explore the limits of imagination.",
+      "objects": [],
+      "exits": {
+        "west": "room_7497468244883513247"
+      },
+      "properties": {}
+    },
+    "room_7497468244883513247": {
+      "id": "room_7497468244883513247",
+      "description": "In the Eastern Wing of the surrealist inflatable space station, the atmosphere is a kaleidoscope of vivid, swirling colors that seem to pulse with the rhythm of a slow heartbeat. The air carries an otherworldly scent of candied ozone and sweet cinnamon, making each breath feel like a taste of unreality. Walls of iridescent, stretchy material shift and change, reflecting distorted images of nebulae from nearby windows, while an almost imperceptible hum fills the air, like a lullaby played on celestial strings. A levitating chessboard floats in the center, its pieces morphing into shapes that defy logic with each move; players can manipulate them through a holographic control panel. Nearby, a plush, oversized beanbag chair rotates gently in zero gravity, its fabric shifting textures from velvet to silk, inviting you to sink into its surreal embrace. A door of liquid mirror stands at one end, rippling with your reflection, awaiting your decision to step through to another peculiar realm.",
+      "objects": [],
+      "exits": {
+        "east": "room_5961769557461764184",
+        "west": "room_1926012586526624009"
+      },
+      "properties": {}
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "projectOverview": {
+    "title": "OpenAI Integration for Text Adventure",
+    "description": "Integration of OpenAI GPT models to process user inputs and update the game state in the text adventure engine.",
+    "goals": [
+      "Interpret user inputs to affect game state",
+      "Provide contextually appropriate responses",
+      "Maintain narrative consistency"
+    ]
+  },
+  "requirements": {
+    "functional": [
+      "Receive user input from the UI",
+      "Process input using OpenAI GPT models",
+      "Generate coherent and contextual responses",
+      "Update game state based on AI responses",
+      "Support multiple OpenAI models (gpt-4o, gpt-4, gpt-3.5-turbo)",
+      "Handle API rate limiting and token management"
+    ],
+    "nonFunctional": [
+      "Ensure low latency in processing user inputs",
+      "Maintain a consistent and coherent game narrative",
+      "Implement proper error handling for API failures",
+      "Secure API key management",
+      "Optimize token usage for cost efficiency"
+    ]
+  },
+  "endpoints": [
+    {
+      "path": "/api/v1/process-input",
+      "method": "POST",
+      "request": {
+        "content-type": "application/json",
+        "body": {
+          "input": "string",
+          "gameState": "object"
+        }
+      },
+      "response": {
+        "content-type": "application/json",
+        "body": {
+          "updatedState": "object",
+          "actionSummary": "string"
+        }
+      }
+    }
+  ],
+  "constraints": [
+    "OpenAI must provide coherent and contextually appropriate responses",
+    "The game state must be updated accurately based on user actions"
+  ],
+  "milestones": [
+    {
+      "name": "Integration Testing",
+      "date": "2024-05-01"
+    },
+    {
+      "name": "Full System Deployment",
+      "date": "2024-07-01"
+    }
+  ],
+  "glossary": {
+    "OpenAI": "The AI service provider used for processing user inputs",
+    "GPT": "Generative Pre-trained Transformer, the AI model architecture used",
+    "Game State": "The current status of the game world, including scenes and objects",
+    "Token": "A unit of text processed by the AI model, affecting API costs"
+  },
+  "version": "2.0.0",
+  "changeLog": [
+    {
+      "version": "1.0.0",
+      "changes": "Initial specification for Ollama integration"
+    },
+    {
+      "version": "2.0.0",
+      "changes": "Migrated to OpenAI integration"
+    }
+  ],
+  "examples": {
+    "userInputExample": "open the box",
+    "openaiResponseExample": {
+      "updatedState": {
+        "currentScene": "scene1",
+        "scenes": [
+          {
+            "id": "scene1",
+            "description": "You are standing in a dimly lit hallway. The walls are lined with portraits whose eyes seem to follow you.",
+            "objects": [
+              {
+                "name": "box",
+                "tags": ["open"],
+                "material": "wood",
+                "contents": ["dusty key", "old letter"]
+              }
+            ],
+            "connectors": [
+              {
+                "id": "connector1",
+                "exits": [
+                  {
+                    "direction": "N",
+                    "description": "A dark staircase leading upwards"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionSummary": "You carefully open the wooden box, revealing a dusty key and an old letter inside.",
+      "modelInfo": {
+        "model": "gpt-4o",
+        "tokensUsed": 150,
+        "temperature": 0.7
+      }
+    }
+  },
+  "apiConfiguration": {
+    "defaultModel": "gpt-4o",
+    "fallbackModel": "gpt-3.5-turbo",
+    "parameters": {
+      "temperature": 0.7,
+      "maxTokens": 150,
+      "topP": 1.0,
+      "frequencyPenalty": 0.0,
+      "presencePenalty": 0.0
+    },
+    "rateLimits": {
+      "requestsPerMinute": 60,
+      "tokensPerMinute": 90000
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "seed": 42,
+  "rooms": {
+    "room_1731786724359470100_8": {
+      "id": "room_1731786724359470100_8",
+      "description": "The dim corridors of the abandoned space station stretch before you, shrouded in an eerie glow from the flickering overhead lights, casting long shadows that dance across the metallic walls. A low hum resonates through the air, accompanied by the occasional hiss of ancient steam vents releasing long-held pressure. The metallic tang of ozone lingers, mingling with the musty scent of time-forgotten machinery. Amidst the disarray, an alien console hums with an inexplicable energy, its luminescent glyphs pulsing gently, inviting interaction. Nearby, a transparent containment pod lies shattered, its contents a mystery scattered in delicate crystalline shards. A thick layer of dust coats the floor, disturbed only by a trail of oddly shaped footprints leading into the shadows. The air is thick with a sense of foreboding yet tinged with the thrill of uncovering lost secrets from another world.",
+      "objects": [],
+      "exits": {},
+      "properties": {}
+    }
+  }
+}

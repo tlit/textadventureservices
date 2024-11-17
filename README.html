@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Adventure Services - A Microservices Adventure!</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #1a1a1a;
+            color: #00ff00;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            color: #ff3e3e;
+            text-shadow: 0 0 10px rgba(255, 62, 62, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ff3e3e;
+            padding-bottom: 10px;
+        }
+
+        .container {
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .warning {
+            color: #ff3e3e;
+            font-weight: bold;
+            padding: 10px;
+            border: 1px solid #ff3e3e;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .feature {
+            background-color: #333;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #00ff00;
+        }
+
+        .service {
+            background-color: #333;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff3e3e;
+        }
+
+        code {
+            background-color: #000;
+            color: #00ff00;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        pre {
+            background-color: #000;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .ascii-art {
+            font-family: monospace;
+            white-space: pre;
+            color: #ff3e3e;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 0.8em;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff3e3e;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #00ff00;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #ff3e3e;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="ascii-art">
+     _____         _      ___      _                 _                 
+    |_   _|____  _| |_   / _ \    / \   ___ ___ ___(_)_ __   __ _    
+      | |/ _ \ \/ / __| | | | |  / _ \ / __/ __/ __| | '_ \ / _` |   
+      | |  __/>  <| |_  | |_| | / ___ \\__ \__ \__ \ | | | | (_| |   
+      |_|\___/_/\_\\__|  \___(_)_/   \_\___/___/___/_|_| |_|\__, |   
+                                                             |___/     
+    </div>
+
+    <h1>Text Adventure Services</h1>
+    
+    <div class="warning blink">
+        ⚠️ WARNING: This codebase contains dangerous amounts of awesome! ⚠️
+    </div>
+
+    <div class="container">
+        <h2>🎮 What's This Madness?</h2>
+        <p>
+            Welcome to <code>Text Adventure Services</code>, where we took the simple concept of a text adventure game and 
+            made it ridiculously over-engineered with microservices! Because why use a single script when you can distribute 
+            your bugs across multiple services? 😎
+        </p>
+    </div>
+
+    <div class="container">
+        <h2>🚀 Features That Will Blow Your Mind</h2>
+        
+        <div class="feature">
+            <h3>🤖 AI-Powered Everything</h3>
+            <p>Our game doesn't just respond to commands - it philosophizes about them! Thanks to OpenAI's GPT models, even a simple command like 
+            "go north" might result in an existential crisis about the true meaning of cardinal directions.</p>
+        </div>
+
+        <div class="feature">
+            <h3>🎭 Dynamic World Generation</h3>
+            <p>Every room is procedurally generated, which means we have no idea what's behind that door either! 
+            Schrödinger's Text Adventure, anyone?</p>
+        </div>
+
+        <div class="feature">
+            <h3>🔄 State Management</h3>
+            <p>We keep track of everything so meticulously, we probably know what you had for breakfast. 
+            (Please don't sue us, this is a joke... or is it? 🤔)</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>🏗️ Architecture (Because We're Fancy)</h2>
+        
+        <div class="service">
+            <h3>🎩 Master Service</h3>
+            <p>The conductor of our orchestra of chaos. It makes sure all other services are playing the same tune, 
+            or at least crashing harmoniously.</p>
+        </div>
+
+        <div class="service">
+            <h3>🌍 World Generator Service</h3>
+            <p>Creates rooms, items, and NPCs with the enthusiasm of a caffeinated dungeon master rolling on a random 
+            table of infinite possibilities.</p>
+        </div>
+
+        <div class="service">
+            <h3>🎨 UI Service</h3>
+            <p>Turns "You are in a dark room" into "YOU ARE IN A DARK ROOM" with style! 
+            Because typography matters, even in the console.</p>
+        </div>
+
+        <div class="service">
+            <h3>📝 Logging Service</h3>
+            <p>Records your every move. Think NSA, but for imaginary dungeons.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>🚦 Getting Started</h2>
+        <pre>
+# Clone this repository of wonders
+git clone https://github.com/yourusername/textadventureservices.git
+
+# Enter the dungeon
+cd textadventureservices
+
+# Summon the dependencies
+go mod download
+
+# Set up your OpenAI API key
+# Create a .env file with your OpenAI API key:
+echo OPENAI_API_KEY=your_api_key_here > .env
+
+# Enable PowerShell script execution (run PowerShell as Administrator)
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Start the game (this will open separate windows for each service)
+.\start_game.ps1
+
+That's it! The script will:
+1. Start all services in separate color-coded windows
+2. Wait for services to initialize
+3. Open a command console with ready-to-use game commands
+
+Note: If you get a security warning about running the script, you can use:
+powershell -ExecutionPolicy Bypass -File .\start_game.ps1
+        </pre>
+    </div>
+
+    <div class="container">
+        <h2>🎮 Sample Commands</h2>
+        <pre>
+# Look around the room
+curl -X POST http://localhost:8080/api/v1/process-input -d '{"input": "examine room"}'
+
+# Check your inventory
+curl -X POST http://localhost:8080/api/v1/process-input -d '{"input": "inventory"}'
+
+# Take an item
+curl -X POST http://localhost:8080/api/v1/process-input -d '{"input": "take keyboard"}'
+
+# Move around
+curl -X POST http://localhost:8080/api/v1/process-input -d '{"input": "go north"}'
+
+# Check game state
+curl -X GET http://localhost:8080/api/v1/game-state
+        </pre>
+    </div>
+
+    <div class="container">
+        <h2>⚠️ Prerequisites</h2>
+        <ul>
+            <li>Go 1.20 or later</li>
+            <li>OpenAI API key</li>
+            <li>curl (for testing endpoints) or any HTTP client</li>
+        </ul>
+        <p>All services must be running for full functionality. The master service will handle service discovery and coordination.</p>
+        <div class="warning">
+            <p>⚠️ Important: Keep your OpenAI API key secure and never commit it to version control!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>🤝 Contributing</h2>
+        <p>Want to add your own flavor of chaos to our perfectly over-engineered system? We welcome contributions! 
+        Just remember:</p>
+        <ul>
+            <li>All PRs must be written in iambic pentameter</li>
+            <li>Your code must work by the light of a full moon</li>
+            <li>Must pass our extensive test suite (it's just <code>fmt.Println("seems good")</code>)</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>⚖️ License</h2>
+        <p>MIT License (Microservices In Text-adventures)</p>
+        <p>You're free to use this code, but if your players get lost in an infinite loop of procedurally generated rooms, 
+        that's on you!</p>
+    </div>
+
+    <footer>
+        <p>Made with ❤️ and excessive amounts of coffee by the Text Adventure Services Team</p>
+        <p>No keyboards were harmed in the making of this game</p>
+        <div class="ascii-art">
+            Game Over?
+            [ Press F5 to continue ]
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "seed": 42,
+  "rooms": {
+    "room_1731786720077523900_7": {
+      "id": "room_1731786720077523900_7",
+      "description": "As you step into the grand foyer of the mysterious castle, an ethereal light dances across the stone walls, casting shifting shadows that hint at ancient secrets. The air is thick with the scent of old parchment and the faint trace of lavender, mingling with a hint of ozone that suggests recent magic. The sound of a distant harp drifts through the halls, its melody both haunting and alluring. A grand chandelier, seemingly made of glowing crystal, hangs overhead, its soft, pulsating light inviting examination; you suspect a hidden mechanism or spell. Nearby, an intricate tapestry depicts mythical creatures in battle, each thread shimmering with enchantment, inviting curious fingers to trace its patterns. A heavy oak door, adorned with a mysterious, runic lock, stands slightly ajar, its secrets beckoning to be unveiled.",
+      "objects": [],
+      "exits": {},
+      "properties": {}
+    }
+  }
+}

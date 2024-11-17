@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Adventure Game User Flow</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .mermaid {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Text Adventure Game User Flow</h1>
+
+        <div class="mermaid">
+flowchart TD
+    Start([User Starts Game]) --> NewGame{New or Load?}
+    NewGame -->|New Game| CharacterCreation[Character Creation]
+    NewGame -->|Load Game| LoadSave[Load Saved Game]
+    
+    LoadSave --> GameLoop
+    CharacterCreation --> GameLoop
+    
+    subgraph GameLoop [Game Loop]
+        direction TB
+        State[Game State] --> DisplayState[Display Current State]
+        DisplayState --> UserInput[User Input]
+        UserInput --> AIProcessing[AI Processing]
+        AIProcessing --> WorldUpdate[Update World State]
+        WorldUpdate --> State
+    end
+    
+    GameLoop --> SaveGame{Save Game?}
+    SaveGame -->|Yes| SaveState[Save Current State]
+    SaveGame -->|No| Continue
+    
+    SaveState --> Continue{Continue Playing?}
+    Continue -->|Yes| GameLoop
+    Continue -->|No| End([End Game])
+    
+    subgraph AIProcessing [AI Processing Detail]
+        direction TB
+        ParseInput[Parse User Input] --> ValidateAction[Validate Action]
+        ValidateAction --> GenerateResponse[Generate Response]
+        GenerateResponse --> UpdateWorld[Calculate World Changes]
+    end
+    
+    subgraph WorldUpdate [World Update Detail]
+        direction TB
+        ApplyChanges[Apply State Changes] --> UpdateObjects[Update Objects]
+        UpdateObjects --> UpdateNPCs[Update NPCs]
+        UpdateNPCs --> UpdateQuests[Update Quests]
+    end
+    
+    subgraph State [Game State Detail]
+        direction TB
+        PlayerState[Player Status] --> Inventory[Inventory]
+        Inventory --> Location[Current Location]
+        Location --> QuestStatus[Quest Status]
+        QuestStatus --> WorldState[World State]
+    end
+
+    classDef default fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    classDef process fill:#e1f3d8,stroke:#82c91e,stroke-width:2px;
+    classDef decision fill:#fff3bf,stroke:#fab005,stroke-width:2px;
+    classDef state fill:#d0ebff,stroke:#339af0,stroke-width:2px;
+    classDef endpoint fill:#ffd8d8,stroke:#ff6b6b,stroke-width:2px;
+    
+    class Start,End endpoint;
+    class NewGame,SaveGame,Continue decision;
+    class GameLoop,AIProcessing,WorldUpdate process;
+    class State,PlayerState,Inventory,Location,QuestStatus,WorldState state;
+        </div>
+
+        <h2>Flow Description</h2>
+
+        <h3>Main Flow</h3>
+        <ol>
+            <li><strong>Start</strong>: User initiates the game</li>
+            <li><strong>New/Load Decision</strong>: Choose between starting a new game or loading a saved game</li>
+            <li><strong>Character Creation</strong>: For new games, create a character</li>
+            <li><strong>Game Loop</strong>: Main gameplay cycle</li>
+            <li><strong>Save Game</strong>: Option to save progress</li>
+            <li><strong>Continue</strong>: Choose to continue playing or end the game</li>
+        </ol>
+
+        <h3>Game Loop Detail</h3>
+        <ol>
+            <li><strong>Game State</strong>: Current state of the game world
+                <ul>
+                    <li>Player Status</li>
+                    <li>Inventory</li>
+                    <li>Location</li>
+                    <li>Quest Status</li>
+                    <li>World State</li>
+                </ul>
+            </li>
+            <li><strong>Display State</strong>: Show relevant information to the user</li>
+            <li><strong>User Input</strong>: Accept and process user commands</li>
+            <li><strong>AI Processing</strong>: Process input and generate responses</li>
+            <li><strong>World Update</strong>: Apply changes to the game world</li>
+        </ol>
+
+        <h3>AI Processing Detail</h3>
+        <ol>
+            <li><strong>Parse Input</strong>: Understand user commands</li>
+            <li><strong>Validate Action</strong>: Check if action is possible</li>
+            <li><strong>Generate Response</strong>: Create appropriate response</li>
+            <li><strong>Calculate Changes</strong>: Determine effects on game world</li>
+        </ol>
+
+        <h3>World Update Detail</h3>
+        <ol>
+            <li><strong>Apply Changes</strong>: Update game state</li>
+            <li><strong>Update Objects</strong>: Modify object states</li>
+            <li><strong>Update NPCs</strong>: Process NPC behaviors</li>
+            <li><strong>Update Quests</strong>: Progress quest states</li>
+        </ol>
+
+        <h2>Key Features</h2>
+        <ul>
+            <li>Persistent game state</li>
+            <li>Dynamic world updates</li>
+            <li>AI-driven interactions</li>
+            <li>Quest system</li>
+            <li>Inventory management</li>
+            <li>Save/Load functionality</li>
+        </ul>
+    </div>
+</body>
+</html>

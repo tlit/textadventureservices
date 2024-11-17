@@ -1,0 +1,12 @@
+{
+  "seed": 12345,
+  "rooms": {
+    "room_7828158075477027098": {
+      "id": "room_7828158075477027098",
+      "description": "test world - Central Hub",
+      "objects": [],
+      "exits": {},
+      "properties": {}
+    }
+  }
+}
