@@ -1,0 +1,62 @@
+# Environment files
+.env
+.env.*
+.env.local
+.env.*.local
+.env.openai
+
+# Go specific
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# Binary files
+bin/
+dist/
+
+# IDE specific
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Debug files
+debug/
+
+# Dependencies
+vendor/
+
+# Test coverage
+coverage.txt
+coverage.html
+
+# Log files
+*.log
+logs/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Build output
+build/
+_build/
+out/
+
+# Local development files
+*.local
+*.local.*
+
+# Generated files
+generated/
+*.generated.go
+
+# Temporary files
+tmp/
+temp/
